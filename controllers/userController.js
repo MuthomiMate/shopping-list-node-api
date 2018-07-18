@@ -11,7 +11,7 @@ class UserController{
             validateEmail(email);
             validatePasswordLength(password)
             const data = new user(req.body)
-            -data.save();
+            data.save();
             res.json({})
         } catch(error){
             res.json(error.message);
