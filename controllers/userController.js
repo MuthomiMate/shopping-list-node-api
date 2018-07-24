@@ -1,23 +1,26 @@
-const user = require("../models/user");
-const {validateEmail, validatePasswordLength} = require("../utils/userUtils")
-const {splitObjects} = require("../utils/GeneralUtils")
+const {registerUser, loginUser} = require("../lib/user")
+const {errorHandler} = require("../utils/errorHandlers")
 
 class UserController{
 
-    static registerUser(req, res){
+    static async registerUser(req, res){
         try {
-            splitObjects(req.body)
-            const {email, password} = req.body
-            validateEmail(email);
-            validatePasswordLength(password)
-            const data = new user(req.body)
-            data.save();
+            await registerUser(req,res)
             res.json({})
         } catch(error){
             res.json(error.message);
         }
 
 
+    }
+
+    static async LoginUser(req, res){
+        try{
+            await loginUser(req)
+            res.json({res:"Logged in successfully"})
+        }catch(error){
+           res.json({ error:errorHandler(error)})
+        }
     }
 }
 module.exports = UserController;

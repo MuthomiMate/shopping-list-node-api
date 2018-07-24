@@ -7,6 +7,7 @@ router.use(bodyParser.json());
 const UserController = require('./controllers/userController');
 
 router.post('/register', UserController.registerUser);
+router.post('/login', UserController.LoginUser )
 router.get('/', (req, res) =>{
     res.json({response: 'Welcome to the node api entrypoint'});
 })
