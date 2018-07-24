@@ -12,7 +12,6 @@ jobs:
           name: Install Packages
           command: |
             echo "npm install" >> ~/.npmrc
-            yarn
       - run:
           name: Setup Code Climate test-reporter
           command: |
