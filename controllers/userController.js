@@ -14,7 +14,7 @@ class UserController{
 
     }
 
-    static async LoginUser(req, res){
+    static async loginUser(req, res){
         try{
             const user = await loginUser(req)
             res.json({
