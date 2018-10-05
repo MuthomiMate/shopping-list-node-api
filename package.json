@@ -4,9 +4,9 @@
   "description": "shopping list api with node, express and mongoose",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint",
-    "test": "jest --detectOpenHandles",
-    "coverage": "jest --collectCoverageFrom=**.js --coverage"
+    "lint": "eslint ./ --ext .js",
+    "test": "NODE_ENV=test jest --runInBand --forceExit",
+    "test:cover": "yarn test -- --coverage"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,8 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-flowtype": "^2.50.3",
     "express": "^4.16.3",
     "jest": "^23.4.1",
     "jsonwebtoken": "^8.3.0",
@@ -37,6 +39,7 @@
     "eslint": "^5.1.0",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-prettier": "^3.0.0",
     "nodemon": "^1.18.3"
   }
 }
