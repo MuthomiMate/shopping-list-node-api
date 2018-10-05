@@ -1,3 +1,5 @@
+require('dotenv').config({path:__dirname+'/../.env'})
+const jwt = require("jsonwebtoken")
 const User = require("../models/user")
 const {InvalidParamsError} = require("./errorHandlers")
 validateEmail = (email, res) =>{
@@ -17,13 +19,25 @@ validateEmail = (email, res) =>{
     }
 
  }
- checkUserExists = (email) = () =>{
-    const userExists =  User.findOne({email})
-    return userExists
+ checkUserExists = async (email) =>{
+    return await User.findOne({email})
+ }
+ generateUserToken = (id) =>{
+     return jwt.sign({id:id}, process.env.SECRET_KEY, {expiresIn: 5000});
+ }
+ verifyToken = (req) => {
+    const token = req.headers['authorization']
+    if(!token){res.json({error: "No token provided"})}
+    jwt.verify(token, process.env.SECRET_KEY, function(error,user){
+        if(error) throw error
+        console.log(user.id);
+    })
+
  }
 
 module.exports = {
     validateEmail,
     validatePasswordLength,
-    checkUserExists
+    checkUserExists,
+    generateUserToken
 }
