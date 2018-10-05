@@ -9,10 +9,13 @@ const userInputs = {
     pasword: "testpass",
     email: ""
 };
-res =response;
+res ={
+    json: jest.fn()
+}
 describe("generalUtils", ()=>{
     it("splits the object provided", () => {
-        const validateResult = splitObjects(userInputs, res)
-        expect(validateResult).toEqual("")
+        splitObjects(userInputs, res)
+        const error= { "error": "Please fill email field" }
+        expect(res.json).toBeCalledWith(error)
     })
 })

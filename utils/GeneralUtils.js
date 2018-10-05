@@ -7,7 +7,6 @@ const validateFields = (params,res) => {
            const error = new MissingParamsError("Please fill " + field +" field")
            res.json({error: error.message})
         }
-        return
     }
 
 }
