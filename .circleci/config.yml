@@ -21,8 +21,8 @@ jobs:
 
             # Download and cache dependencies
             # - run: install depencies
-            - run: npm install yarn@latest
-            - run: yarn install
+            # - run: npm install yarn@latest
+            - run: npm install
 
             - restore_cache:
                   keys:
@@ -37,8 +37,8 @@ jobs:
                   key: v1-dependencies-{{ checksum "package.json" }}
 
             # run tests!
-            - run: yarn install
-            - run: yarn test
+            - run: npm install
+            - run: npm test
             - run: echo "ALL GOOD IN THE HOOD"
             - deploy:
                   name: Deploy on deploy branch
