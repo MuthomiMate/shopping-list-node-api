@@ -21,6 +21,7 @@ jobs:
 
             # Download and cache dependencies
             # - run: install depencies
+            - run: npm install yarn@latest
             - run: yarn install
 
             - restore_cache:
