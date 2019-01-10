@@ -1,5 +1,5 @@
 extends: [
-    'airbnb-base',
+    'airbnb',
     'plugin:flowtype/recommended',
     "parser": "babel-eslint",
     'prettier'
