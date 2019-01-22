@@ -1,20 +1,20 @@
-class InvalidLoginError extends Error{
-    constructor(message){
-        message = message|| "Invalid login Credentials"
+class InvalidLoginError extends Error {
+    constructor(message) {
+        message = message || "Invalid login Credentials"
         super(message)
         this.name = "InvalidLoginError"
     }
 }
 class InvalidUserError extends Error {
     constructor(message) {
-        message  = message || "User not registered"
+        message = message || "User not registered"
         super(message)
-        this.name =  "InvalidUserError"
+        this.name = "InvalidUserError"
     }
-
 }
+
 class MissingParamsError extends Error {
-    constructor(message){
+    constructor(message) {
         message = message || "Missing some parameters"
         super(message)
         this.name = "MissingParamsError"
@@ -22,7 +22,7 @@ class MissingParamsError extends Error {
 }
 
 class InvalidParamsError extends Error {
-    constructor(message){
+    constructor(message) {
         message = message || "Wrong parameters provided"
         super(message)
         this.name = InvalidParamsError
@@ -30,17 +30,17 @@ class InvalidParamsError extends Error {
     }
 }
 
-const errorHandler = (error) =>{
-    if (error instanceof InvalidLoginError){
+const errorHandler = (error) => {
+    if (error instanceof InvalidLoginError) {
         return error.message
     }
-    if(error instanceof InvalidUserError){
+    if (error instanceof InvalidUserError) {
         return error.message
     }
-    if(error instanceof MissingParamsError){
+    if (error instanceof MissingParamsError) {
         return error.message
     }
-    if(error instanceof InvalidParamsError){
+    if (error instanceof InvalidParamsError) {
         return error.message
     }
     return "Internal Server error"
