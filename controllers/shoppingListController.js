@@ -5,7 +5,8 @@ const {
     createShoppingList,
     getAllShoppingLists,
     getSingleShoppingList,
-    updateShoppingList
+    updateShoppingList,
+    deleteShoppingList
 } = require('../lib/shoppingList')
 
 class shoppingListController {
@@ -38,6 +39,15 @@ class shoppingListController {
             const response = await updateShoppingList(req, res)
             res.send(response)
         } catch (error) {
+            errorHandler(error)
+        }
+    }
+    
+    static async deleteShoppingListController(req, res) {
+        try {
+            const response = await deleteShoppingList(req, res)
+            res.send(response)
+        } catch (error){
             errorHandler(error)
         }
     }

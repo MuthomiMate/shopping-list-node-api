@@ -20,5 +20,6 @@ router.post('/shoppinglist', shoppingListController.createShoppingListController
 router.get('/shoppinglist', shoppingListController.getAllShoppingListController)
 router.get('/shoppinglist/:id', shoppingListController.getSingleShoppingListController)
 router.patch('/shoppinglist/:id', shoppingListController.updateShoppingListController)
+router.delete('/shoppinglist/:id', shoppingListController.deleteShoppingListController)
 
 module.exports = router;
