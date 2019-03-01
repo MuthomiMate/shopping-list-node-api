@@ -1,45 +1,42 @@
 extends: [
-    'airbnb-base',
+    'airbnb',
     'plugin:flowtype/recommended',
-    "parser": "babel-eslint"
+    "parser": "babel-eslint",
     'prettier'
   ]
-  env: {'jest': true }
-  plugins: [ 'prettier','flowtype' ]
-  globals: {
-    'db': true,
-    'tableNames': true
-  }
-  rules: {
-    'prettier/prettier': [
-      'error',
-      {
-        singleQuote: true,
-        trailingComma: 'all',
-        bracketSpacing: true,
-        semi: false,
-        parser: flow
+env: {'jest': true }
+plugins: [ 'prettier','flowtype' ]
+globals: {
+  'db': true,
+  'tableNames': true
+}
+rules: {
+  'prettier/prettier': [
+    'error',
+    {
+      singleQuote: true,
+      trailingComma: 'all',
+      bracketSpacing: true,
+      semi: true,
+      parser: flow
+    },
+  ],
+  semi: [0],
+  no-param-reassign: [0],
+  import/no-extraneous-dependencies: [0],
+  import/extensions:[
+    off,
+    'never'],
+  prefer-destructuring: ['error', {
+      'VariableDeclarator': {
+        'array': true,
+        'object': true
       },
-    ],
-    semi: [0],
-    no-param-reassign: [0],
-    import/no-extraneous-dependencies: [0],
-    import/extensions:[
-      off,
-      'never'],
-    prefer-destructuring: ['error', {
-        'VariableDeclarator': {
-          'array': true,
-          'object': true
-        },
-        'AssignmentExpression': {
-          'array': true,
-          'object': false
-        }
-      }, {
-        'enforceForRenamedProperties': false
-      }],
-  settings:[
-    flowtype:[
-      onlyFilesWithFlowAnnotation: true]]
+      'AssignmentExpression': {
+        'array': true,
+        'object': false
+      }
+    }, {
+      'enforceForRenamedProperties': false
+    }],
   }
