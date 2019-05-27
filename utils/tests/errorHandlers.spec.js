@@ -23,5 +23,4 @@ describe("Error Handlers", () =>{
         const errorMessage = "Missing some parameters";
         expect(error.message).toEqual(errorMessage);
     })
-
 })

@@ -1,28 +1,35 @@
-const {registerUser, loginUser} = require("../lib/user")
-const {errorHandler} = require("../utils/errorHandlers")
+const {
+    registerUser,
+    loginUser
+} = require("../lib/user")
+const {
+    errorHandler
+} = require("../utils/errorHandlers")
 
-class UserController{
+class UserController {
 
-    static async registerUser(req, res){
+    static async registerUser(req, res) {
         try {
-             await registerUser(req,res)
+            await registerUser(req, res)
             res.json({})
-        } catch(error){
+        } catch (error) {
             res.json(error.message);
         }
 
 
     }
 
-    static async loginUser(req, res){
-        try{
+    static async loginUser(req, res) {
+        try {
             const user = await loginUser(req)
             res.json({
-                res:"Logged in successfully",
+                res: "Logged in successfully",
                 token: user
             })
-        }catch(error){
-           res.json({ error:errorHandler(error)})
+        } catch (error) {
+            res.json({
+                error: errorHandler(error)
+            })
         }
     }
 }
